@@ -37,10 +37,30 @@ Implementation of Item class is here:
 ```csharp
 public class Item
 {
-    public string Name { get; set; }
+    public Item(string name)
+    {
+        Name = name;
+    }
+    public string Name { get; }
     public int SellIn { get; set; }
     public int Quality { get; set; }
 }
+```
+
+Here is how items are created and initialized:
+```csharp
+items = new List<Item>
+{
+    new Item("+5 Dexterity Vest") {SellIn = 10, Quality = 20},
+    new Item("Aged Brie") {SellIn = 2, Quality = 0},
+    new Item("Elixir of the Mongoose") {SellIn = 5, Quality = 7},
+    new Item("Sulfuras, Hand of Ragnaros") {SellIn = 0, Quality = 80},
+    new Item("Sulfuras, Hand of Ragnaros") {SellIn = -1, Quality = 80},
+    new Item("Backstage passes to a TAFKAL80ETC concert") {SellIn = 15, Quality = 20},
+    new Item("Backstage passes to a TAFKAL80ETC concert") {SellIn = 10, Quality = 49},
+    new Item("Backstage passes to a TAFKAL80ETC concert") {SellIn = 5, Quality = 49},
+    new Item("Backstage passes to a TAFKAL80ETC concert") {SellIn = 3, Quality = 6}
+};
 ```
 
 @[Implement all the requirements]({"stubs": ["Exercises/UniverseStub.cs"],"command": "TechIo.UniverseTest.VerifyCountAllStars"})
