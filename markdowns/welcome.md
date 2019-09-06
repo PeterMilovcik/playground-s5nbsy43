@@ -33,20 +33,15 @@ Just for clarification, an item can never have its Quality increase above 50, ho
     
     - "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
 
-Implementation of Item class shown here:
+Implementation of Item class is here:
 
 ```csharp
 public class Item
-    {
-        public string Name { get; set; }
-        public int SellIn { get; set; }
-        public int Quality { get; set; }
-
-        public override string ToString()
-        {
-            return this.Name + ", " + this.SellIn + ", " + this.Quality;
-        }  
-    }
+{
+    public string Name { get; set; }
+    public int SellIn { get; set; }
+    public int Quality { get; set; }
+}
 ```
 
 @[Luke, how many stars are there in these galaxies?]({"stubs": ["Exercises/UniverseStub.cs"],"command": "TechIo.UniverseTest.VerifyCountAllStars"})
