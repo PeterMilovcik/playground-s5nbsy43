@@ -42,6 +42,13 @@ using System;
          }
 
          [TestMethod]
+         public void AllTests()
+         {
+            DexterityVest();
+            AgedBrie();
+         }
+
+         [TestMethod]
          public void DexterityVest()
          {
              shouldShowHint = true;
@@ -61,7 +68,7 @@ using System;
              shouldShowHint = false;
          }
 
-        [TestCleanup()]
+        [TestCleanup]
          public void Cleanup()
          {
              if (shouldShowHint)
