@@ -20,6 +20,7 @@ using System;
          private Item backstagePasses2;
          private Item backstagePasses3;
          private Item backstagePasses4;
+         private GildedRose sut;
 
          [TestInitialize]
          public void Initialize()
@@ -37,20 +38,30 @@ using System;
              {
                  dexterityVest, agedBrie, elixir, legendary1, legendary2, backstagePasses1, backstagePasses2, backstagePasses3, backstagePasses4
              };
+             sut = new GildedRose(items);
          }
 
          [TestMethod]
          public void DexterityVest()
          {
              shouldShowHint = true;
-             var gildedRose = new GildedRose(items);
-             gildedRose.UpdateQuality();
+             sut.UpdateQuality();
              Assert.AreEqual(dexterityVest.Quality, 19, "Quality");
              Assert.AreEqual(dexterityVest.SellIn, 9, "SellIn");
              shouldShowHint = false;
          }
 
-         [TestCleanup()]
+         [TestMethod]
+         public void AgedBrie()
+         {
+             shouldShowHint = true;
+             sut.UpdateQuality();
+             Assert.AreEqual(agedBrie.Quality, 1, "Quality");
+             Assert.AreEqual(agedBrie.SellIn, 1, "SellIn");
+             shouldShowHint = false;
+         }
+
+        [TestCleanup()]
          public void Cleanup()
          {
              if (shouldShowHint)
