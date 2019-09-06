@@ -117,12 +117,7 @@ namespace TechIo
             sulfuras.SellIn = 0;
             sulfuras.Quality = 80;
             sut.UpdateQuality();
-            Assert.AreEqual(-1, sulfuras.SellIn, "SellIn");
-            Assert.AreEqual(80, sulfuras.Quality, "Quality");
-            sulfuras.SellIn = -1;
-            sulfuras.Quality = 80;
-            sut.UpdateQuality();
-            Assert.AreEqual(-2, sulfuras.SellIn, "SellIn");
+            Assert.AreEqual(0, sulfuras.SellIn, "SellIn");
             Assert.AreEqual(80, sulfuras.Quality, "Quality");
             shouldShowHint = false;
         }
