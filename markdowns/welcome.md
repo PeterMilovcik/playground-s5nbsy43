@@ -29,8 +29,9 @@ We have recently signed a supplier of conjured items. This requires an update to
 Feel free to make any changes to the UpdateQuality method and add any new code as long as everything
 still works correctly. 
 
-Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
-legendary item and as such its Quality is 80 and it never alters.
+Just for clarification, an item can never have its Quality increase above 50, however 
+    
+    - "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
 
 @[Luke, how many stars are there in these galaxies?]({"stubs": ["Exercises/UniverseStub.cs"],"command": "TechIo.UniverseTest.VerifyCountAllStars"})
 
