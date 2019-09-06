@@ -22,10 +22,10 @@ namespace TechIo
         [TestInitialize]
         public void Initialize()
         {
-            dexterityVest = new Item("+5 Dexterity Vest") {SellIn = 10, Quality = 20};
-            agedBrie = new Item("Aged Brie") {SellIn = 2, Quality = 0};
-            elixir = new Item("Elixir of the Mongoose") {SellIn = 5, Quality = 7};
-            sulfuras = new Item("Sulfuras, Hand of Ragnaros") {SellIn = 0, Quality = 80};
+            dexterityVest = new Item("+5 Dexterity Vest");
+            agedBrie = new Item("Aged Brie");
+            elixir = new Item("Elixir of the Mongoose");
+            sulfuras = new Item("Sulfuras, Hand of Ragnaros");
             backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert") {SellIn = 15, Quality = 20};
             conjured = new Item("Conjured Mana Cake"){SellIn = 3, Quality = 6};
             items = new List<Item> {dexterityVest, agedBrie, elixir, sulfuras, backstagePasses};
@@ -37,26 +37,55 @@ namespace TechIo
         {
             DexterityVest();
             AgedBrie();
+            Elixir();
             Sulfuras();
             BackstagePasses();
             Conjured();
         }
 
+        private void Elixir()
+        {
+            shouldShowHint = true;
+            elixir.SellIn = 5;
+            elixir.Quality = 7;
+            sut.UpdateQuality();
+            Assert.AreEqual(4, elixir.SellIn, "SellIn");
+            Assert.AreEqual(6, elixir.Quality, "Quality");
+            dexterityVest.SellIn = 0;
+            dexterityVest.Quality = 19;
+            sut.UpdateQuality();
+            Assert.AreEqual(-1, elixir.SellIn, "SellIn");
+            Assert.AreEqual(17, elixir.Quality, "Quality");
+            dexterityVest.SellIn = 0;
+            dexterityVest.Quality = 0;
+            sut.UpdateQuality();
+            Assert.AreEqual(-1, elixir.SellIn, "SellIn");
+            Assert.AreEqual(0, elixir.Quality, "Quality");
+            dexterityVest.SellIn = -1;
+            dexterityVest.Quality = 0;
+            sut.UpdateQuality();
+            Assert.AreEqual(-2, elixir.SellIn, "SellIn");
+            Assert.AreEqual(0, elixir.Quality, "Quality");
+            shouldShowHint = false;
+        }
+
         private void DexterityVest()
         {
             shouldShowHint = true;
+            dexterityVest.SellIn = 10;
+            dexterityVest.Quality = 20;
             sut.UpdateQuality();
             Assert.AreEqual(9, dexterityVest.SellIn, "SellIn");
             Assert.AreEqual(19, dexterityVest.Quality, "Quality");
             dexterityVest.SellIn = 0;
             dexterityVest.Quality = 19;
             sut.UpdateQuality();
-            Assert.AreEqual(0, dexterityVest.SellIn, "SellIn");
+            Assert.AreEqual(-1, dexterityVest.SellIn, "SellIn");
             Assert.AreEqual(17, dexterityVest.Quality, "Quality");
             dexterityVest.SellIn = 0;
             dexterityVest.Quality = 0;
             sut.UpdateQuality();
-            Assert.AreEqual(0, dexterityVest.SellIn, "SellIn");
+            Assert.AreEqual(-1, dexterityVest.SellIn, "SellIn");
             Assert.AreEqual(0, dexterityVest.Quality, "Quality");
             shouldShowHint = false;
         }
@@ -64,28 +93,37 @@ namespace TechIo
         private void AgedBrie()
         {
             shouldShowHint = true;
+            agedBrie.SellIn = 2;
+            agedBrie.Quality = 0;
             sut.UpdateQuality();
-            Assert.AreEqual(1, agedBrie.Quality, "Quality");
             Assert.AreEqual(1, agedBrie.SellIn, "SellIn");
+            Assert.AreEqual(1, agedBrie.Quality, "Quality");
             agedBrie.SellIn = 0;
             agedBrie.Quality = 0;
             sut.UpdateQuality();
-            Assert.AreEqual(1, agedBrie.Quality, "Quality");
             Assert.AreEqual(0, agedBrie.SellIn, "SellIn");
+            Assert.AreEqual(1, agedBrie.Quality, "Quality");
             agedBrie.SellIn = 0;
             agedBrie.Quality = 50;
             sut.UpdateQuality();
-            Assert.AreEqual(50, agedBrie.Quality, "Quality");
             Assert.AreEqual(0, agedBrie.SellIn, "SellIn");
+            Assert.AreEqual(50, agedBrie.Quality, "Quality");
             shouldShowHint = false;
         }
 
         private void Sulfuras()
         {
             shouldShowHint = true;
+            sulfuras.SellIn = 0;
+            sulfuras.Quality = 80;
             sut.UpdateQuality();
-            Assert.AreEqual(0, sulfuras.Quality, "Quality");
             Assert.AreEqual(80, sulfuras.SellIn, "SellIn");
+            Assert.AreEqual(-1, sulfuras.Quality, "Quality");
+            sulfuras.SellIn = -1;
+            sulfuras.Quality = 80;
+            sut.UpdateQuality();
+            Assert.AreEqual(80, sulfuras.SellIn, "SellIn");
+            Assert.AreEqual(-2, sulfuras.Quality, "Quality");
             shouldShowHint = false;
         }
 
@@ -95,23 +133,23 @@ namespace TechIo
             backstagePasses.SellIn = 15;
             backstagePasses.Quality = 10;
             sut.UpdateQuality();
-            Assert.AreEqual(11, backstagePasses.Quality, "Quality");
             Assert.AreEqual(14, backstagePasses.SellIn, "SellIn");
+            Assert.AreEqual(11, backstagePasses.Quality, "Quality");
             backstagePasses.SellIn = 10;
             backstagePasses.Quality = 10;
             sut.UpdateQuality();
-            Assert.AreEqual(12, backstagePasses.Quality, "Quality");
             Assert.AreEqual(9, backstagePasses.SellIn, "SellIn");
+            Assert.AreEqual(12, backstagePasses.Quality, "Quality");
             backstagePasses.SellIn = 5;
             backstagePasses.Quality = 10;
             sut.UpdateQuality();
-            Assert.AreEqual(13, backstagePasses.Quality, "Quality");
             Assert.AreEqual(4, backstagePasses.SellIn, "SellIn");
+            Assert.AreEqual(13, backstagePasses.Quality, "Quality");
             backstagePasses.SellIn = 0;
             backstagePasses.Quality = 10;
             sut.UpdateQuality();
+            Assert.AreEqual(-1, backstagePasses.SellIn, "SellIn");
             Assert.AreEqual(0, backstagePasses.Quality, "Quality");
-            Assert.AreEqual(0, backstagePasses.SellIn, "SellIn");
             shouldShowHint = false;
         }
         
@@ -121,18 +159,18 @@ namespace TechIo
             conjured.SellIn = 3;
             conjured.Quality = 10;
             sut.UpdateQuality();
-            Assert.AreEqual(8, sulfuras.Quality, "Quality");
             Assert.AreEqual(2, sulfuras.SellIn, "SellIn");
+            Assert.AreEqual(8, sulfuras.Quality, "Quality");
             conjured.SellIn = 0;
             conjured.Quality = 10;
             sut.UpdateQuality();
+            Assert.AreEqual(-1, sulfuras.SellIn, "SellIn");
             Assert.AreEqual(4, sulfuras.Quality, "Quality");
-            Assert.AreEqual(0, sulfuras.SellIn, "SellIn");
             conjured.SellIn = 0;
             conjured.Quality = 0;
             sut.UpdateQuality();
+            Assert.AreEqual(-1, sulfuras.SellIn, "SellIn");
             Assert.AreEqual(0, sulfuras.Quality, "Quality");
-            Assert.AreEqual(0, sulfuras.SellIn, "SellIn");
             shouldShowHint = false;
         }
 
