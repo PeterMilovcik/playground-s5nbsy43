@@ -71,6 +71,10 @@ namespace Answer
                             {
                                 if (items[i].Name != "Sulfuras, Hand of Ragnaros")
                                 {
+                                    if (items[i].Name.Contains("Conjured"))
+                                    {
+                                        items[i].Quality = items[i].Quality - 1;
+                                    }
                                     items[i].Quality = items[i].Quality - 1;
                                 }
                             }

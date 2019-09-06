@@ -9,3 +9,5 @@
 /csharp-project/bin/Debug/netcoreapp1.1
 /csharp-project/obj/Debug/netcoreapp1.1
 /csharp-project/obj
+*.testlog
+*.manifest
