@@ -28,7 +28,7 @@ namespace TechIo
             sulfuras = new Item("Sulfuras, Hand of Ragnaros");
             backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert") {SellIn = 15, Quality = 20};
             conjured = new Item("Conjured Mana Cake"){SellIn = 3, Quality = 6};
-            items = new List<Item> {dexterityVest, agedBrie, elixir, sulfuras, backstagePasses};
+            items = new List<Item> {dexterityVest, agedBrie, elixir, sulfuras, backstagePasses, conjured};
             sut = new GildedRose(items);
         }
 
