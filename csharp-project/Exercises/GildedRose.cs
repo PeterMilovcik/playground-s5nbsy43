@@ -77,10 +77,12 @@ namespace Answer
                                 {
                                     if (items[i].Name.Contains("Conjured"))
                                     {
+                                        items[i].Quality-=2;
+                                    }
+                                    else
+                                    {
                                         items[i].Quality--;
                                     }
-
-                                    items[i].Quality--;
                                 }
                             }
                         }
