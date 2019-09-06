@@ -17,7 +17,15 @@ namespace Answer
         // }
         public void UpdateQuality()
         {
-            throw new NotImplementedException();
+            foreach (var item in items)
+            {
+                // ...
+                if (item.Name.Equals("Aged Brie"))
+                {
+                    // TODO...
+                }
+                // ...
+            }
         }
 //{ autofold
 	}
