@@ -25,7 +25,11 @@ namespace Answer
                     {
                         if (items[i].Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            items[i].Quality = items[i].Quality - 1;
+                            if (items[i].Name.Contains("Conjured"))
+                            {
+                                items[i].Quality--;
+                            }
+                            items[i].Quality--;
                         }
                     }
                 }
@@ -73,9 +77,10 @@ namespace Answer
                                 {
                                     if (items[i].Name.Contains("Conjured"))
                                     {
-                                        items[i].Quality = items[i].Quality - 1;
+                                        items[i].Quality--;
                                     }
-                                    items[i].Quality = items[i].Quality - 1;
+
+                                    items[i].Quality--;
                                 }
                             }
                         }
