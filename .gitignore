@@ -3,3 +3,9 @@
 ################################################################################
 
 *.sqlite
+*.suo
+*.dtbcache
+/csharp-project/.vs/csharp-project/v16/Server/sqlite3
+/csharp-project/bin/Debug/netcoreapp1.1
+/csharp-project/obj/Debug/netcoreapp1.1
+/csharp-project/obj
