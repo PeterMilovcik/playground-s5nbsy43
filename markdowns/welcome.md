@@ -1,5 +1,7 @@
 # Gilded Rose Requirements Specification
 
+![Gilded Rose](https://miro.medium.com/max/800/1*NoIcn06ksMOa-Ydv1UvYEw.jpeg)
+
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
 prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
 Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We
@@ -63,7 +65,7 @@ items = new List<Item>
 };
 ```
 
-@[Implement all the requirements]({"stubs": ["Exercises/UniverseStub.cs"],"command": "TechIo.UniverseTest.VerifyCountAllStars"})
+@[Implement all the requirements]({"stubs": ["Exercises/GildedRose.cs"],"command": "TechIo.GildedRoseTests.DexterityVest"})
 
 Check out the markdown file [`welcome.md`](https://github.com/TechDotIO/csharp-template/blob/master/markdowns/welcome.md) to see how this exercise is injected into the template.
 
