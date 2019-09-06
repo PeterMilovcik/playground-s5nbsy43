@@ -101,12 +101,12 @@ namespace TechIo
             agedBrie.SellIn = 0;
             agedBrie.Quality = 0;
             sut.UpdateQuality();
-            Assert.AreEqual(0, agedBrie.SellIn, "SellIn");
+            Assert.AreEqual(-1, agedBrie.SellIn, "SellIn");
             Assert.AreEqual(1, agedBrie.Quality, "Quality");
             agedBrie.SellIn = 0;
             agedBrie.Quality = 50;
             sut.UpdateQuality();
-            Assert.AreEqual(0, agedBrie.SellIn, "SellIn");
+            Assert.AreEqual(-1, agedBrie.SellIn, "SellIn");
             Assert.AreEqual(50, agedBrie.Quality, "Quality");
             shouldShowHint = false;
         }
