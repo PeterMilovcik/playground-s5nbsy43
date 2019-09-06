@@ -17,7 +17,7 @@ namespace Answer
         public void UpdateQuality()
         {
             // TODO ...
-            // Hint: Iterate through this.items list and check Name property
+            // Hint: Iterate through this.items list and check Name property to access specific item
         }
         //{ autofold
     }
