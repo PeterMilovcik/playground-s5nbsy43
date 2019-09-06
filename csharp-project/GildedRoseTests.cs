@@ -154,18 +154,18 @@ namespace TechIo
             conjured.SellIn = 3;
             conjured.Quality = 10;
             sut.UpdateQuality();
-            Assert.AreEqual(2, sulfuras.SellIn, "SellIn");
-            Assert.AreEqual(8, sulfuras.Quality, "Quality");
+            Assert.AreEqual(2, conjured.SellIn, "SellIn");
+            Assert.AreEqual(8, conjured.Quality, "Quality");
             conjured.SellIn = 0;
             conjured.Quality = 10;
             sut.UpdateQuality();
-            Assert.AreEqual(-1, sulfuras.SellIn, "SellIn");
-            Assert.AreEqual(4, sulfuras.Quality, "Quality");
+            Assert.AreEqual(-1, conjured.SellIn, "SellIn");
+            Assert.AreEqual(4, conjured.Quality, "Quality");
             conjured.SellIn = 0;
             conjured.Quality = 0;
             sut.UpdateQuality();
-            Assert.AreEqual(-1, sulfuras.SellIn, "SellIn");
-            Assert.AreEqual(0, sulfuras.Quality, "Quality");
+            Assert.AreEqual(-1, conjured.SellIn, "SellIn");
+            Assert.AreEqual(0, conjured.Quality, "Quality");
             shouldShowHint = false;
         }
 
