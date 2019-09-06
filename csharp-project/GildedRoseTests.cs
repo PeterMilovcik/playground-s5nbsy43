@@ -160,7 +160,7 @@ namespace TechIo
             conjured.Quality = 10;
             sut.UpdateQuality();
             Assert.AreEqual(-1, conjured.SellIn, "SellIn");
-            Assert.AreEqual(4, conjured.Quality, "Quality");
+            Assert.AreEqual(6, conjured.Quality, "Quality");
             conjured.SellIn = 0;
             conjured.Quality = 0;
             sut.UpdateQuality();
