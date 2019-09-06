@@ -102,7 +102,7 @@ namespace TechIo
             agedBrie.Quality = 0;
             sut.UpdateQuality();
             Assert.AreEqual(-1, agedBrie.SellIn, "SellIn");
-            Assert.AreEqual(1, agedBrie.Quality, "Quality");
+            Assert.AreEqual(2, agedBrie.Quality, "Quality");
             agedBrie.SellIn = 0;
             agedBrie.Quality = 50;
             sut.UpdateQuality();
